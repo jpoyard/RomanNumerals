@@ -14,25 +14,34 @@ import cucumber.api.java.en.When;
  *
  */
 public class RomanNumeralsSteps {
-	Integer givingValue;
-	String actual;
+	Integer givingIntegerValue;
+	String actualNumeral;
+	
+	String givingNumeralValue;
+	Integer actualDigit;
+	
 	Exception actualException;
+	
+
+    /***
+     * digit to numeral
+     */
 	
 	@Given("^the negative digit value -(\\d+)$")
     public void givingNegatigeDigitValue(Integer value) throws Throwable {
-		givingValue = -value;  	
+		givingIntegerValue = -value;  	
     }
     	
     @Given("^the digit value (\\d+)$")
     public void givingDigitValue(Integer value) throws Throwable {
-    	givingValue = value; 
+    	givingIntegerValue = value; 
     }
     
     @When("^I call digitToNumeral function$")
     public void i_call_numberToRomanNumerals_function() throws Throwable {
     	RomanNumerals romanNumerals = new RomanNumerals();   	
 		try{
-    		actual = romanNumerals.digitToNumeral(givingValue);	    		
+			actualNumeral = romanNumerals.digitToNumeral(givingIntegerValue);	    		
 		} catch(UnsupportedOperationException exception){
 			actualException = exception;
 		}   
@@ -45,8 +54,30 @@ public class RomanNumeralsSteps {
     
     @Then("^the roman numeral should be \"([^\"]*)\"$")
     public void it_should_returns_values(String expected) throws Throwable {
-    	Assert.assertEquals(expected, actual);
+    	Assert.assertEquals(expected, actualNumeral);
     }
     
+    /***
+     * numeral to digit
+     */
     
+    @Given("^the roman numeral value \"([^\"]*)\"$")
+    public void givingNumeralValue(String numeral) throws Throwable {
+    	givingNumeralValue = numeral; 
+    }
+    
+    @When("^I call numeralToDigit function$")
+    public void i_call_numeralToDigit_function() throws Throwable {
+    	RomanNumerals romanNumerals = new RomanNumerals();   	
+		try{
+    		actualDigit = romanNumerals.numeralToDigit(givingNumeralValue);	    		
+		} catch(UnsupportedOperationException exception){
+			actualException = exception;
+		}   
+    }
+    
+    @Then("^the digit value should be (\\d+)$")
+    public void it_should_returns_values(Integer expected) throws Throwable {
+    	Assert.assertEquals(expected, actualDigit);
+    } 
 }

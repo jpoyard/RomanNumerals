@@ -81,5 +81,15 @@ public class RomanNumerals {
 
 		return digitToNumeral(rank + 1, digit - rankValue) + numeral;
 	}
-
+	
+	/**
+	 * Convert from Roman Numerals to normal numbers
+	 * 
+	 * @param number
+	 *            the Roman numerals to convert in digit
+	 * @return digit value
+	 */
+	public Integer numeralToDigit(String numeral) {
+		return 1;
+	}
 }

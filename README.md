@@ -12,5 +12,8 @@ Create githup project, with Cucumber samples and an Application main class
 2. Create digitToNumeral.feature file
 3. Implements RomanNumerals.digitToNumeral() methods
 
+## Step 3 - implements numeralToDigit() tests
+
+
 
 
