@@ -18,14 +18,15 @@ Feature: Write a function to convert in the other direction, ie numeral to digit
       | M     |  1000 |
 
     Examples: numeralToDigit - some expected values
-      | roman  | digit |
-      | CMXCIX |   999 |
-      | CM     |   900 |
-      | XC     |    90 |
-      | MCMXC  |  1990 |
-      | MM     |  2000 |
-      | VIII   |     8 |
-      | MMVIII |  2008 |
+      | roman          | digit |
+      | CMXCIX         |   999 |
+      | CM             |   900 |
+      | XC             |    90 |
+      | MCMXC          |  1990 |
+      | MM             |  2000 |
+      | VIII   				 |     8 |
+      | MMVIII 				 |  2008 |
+      | MMMDCCCXCIX    |  3899 |
 
     Examples: numeralToDigit - specific values (not exceed 3 sames letters)
       | roman | digit |

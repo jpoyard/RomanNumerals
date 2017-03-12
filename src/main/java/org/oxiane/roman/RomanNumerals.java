@@ -1,14 +1,19 @@
 package org.oxiane.roman;
 
 import java.rmi.UnexpectedException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Hello world!
  *
  */
 public class RomanNumerals {
-	private static String[] one = { "I", "X", "C", "M" };
+	private static String[] one = new String[]{ "I", "X", "C", "M" };
+	private static List<String> oneList = new ArrayList<>(Arrays.asList(one));
 	private static String[] five = { "V", "L", "D" };
+	private static List<String> fiveList = new ArrayList<>(Arrays.asList(five));
 
 	/**
 	 * Convert from normal numbers to Roman Numerals
@@ -90,6 +95,43 @@ public class RomanNumerals {
 	 * @return digit value
 	 */
 	public Integer numeralToDigit(String numeral) {
-		return 1;
+		return numeralToDigit("", numeral);
+	}
+	
+	public Integer numeralToDigit(String previousNumeral, String numeral) {
+		if(numeral.isEmpty()){
+			return 0;
+		}
+		
+		String actualNumeral = numeral.substring(0, 1);
+
+		Integer digit;
+		int rank = oneList.indexOf(actualNumeral);
+		if(rank == -1){
+			rank = fiveList.indexOf(actualNumeral);
+			String firstNumeralForThisRank = oneList.get(rank);
+			if(previousNumeral.equals(firstNumeralForThisRank)){
+				// IV = 1 + 3 = 4
+				digit = 3;	
+			} else {
+				digit = 5;
+			}			
+		} else {
+			digit = 1;
+			if(rank > 0){
+				String firstNumeralForThePreviousRank = oneList.get(rank-1);
+				if(previousNumeral.equals(firstNumeralForThePreviousRank)){
+					// IX = 1 + 8 = 9
+					rank--;
+					digit = 8;	
+				}
+			}
+		}
+		
+		if(rank > -1){
+			 digit = digit * (int) Math.pow(10, rank);
+		}
+		
+		return digit + numeralToDigit(actualNumeral, numeral.substring(1));
 	}
 }

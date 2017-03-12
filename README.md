@@ -14,6 +14,14 @@ Create githup project, with Cucumber samples and an Application main class
 
 ## Step 3 - implements numeralToDigit() tests
 
-
+## Step 4 - implements numeralToDigit() method
+* Prototyping method as long as the tests fail
+* Implements recursive method : 
+** III = 1 + 1 + 1 = 3
+** IV = 1 + 3 = 4
+** VII = 5 + 1 + 1 = 7
+** IX = 1 + 8 = 9
+** Stop condition is empty string
+* No test for invalid roman numerals like this : IIII 
 
 
