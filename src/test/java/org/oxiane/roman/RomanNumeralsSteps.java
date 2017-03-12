@@ -53,14 +53,13 @@ public class RomanNumeralsSteps {
     }
     
     @Then("^the roman numeral should be \"([^\"]*)\"$")
-    public void it_should_returns_values(String expected) throws Throwable {
+    public void it_should_returns_numeral_value(String expected) throws Throwable {
     	Assert.assertEquals(expected, actualNumeral);
     }
     
     /***
      * numeral to digit
      */
-    
     @Given("^the roman numeral value \"([^\"]*)\"$")
     public void givingNumeralValue(String numeral) throws Throwable {
     	givingNumeralValue = numeral; 
@@ -76,8 +75,8 @@ public class RomanNumeralsSteps {
 		}   
     }
     
-    @Then("^the digit value should be (\\d+)$")
-    public void it_should_returns_values(Integer expected) throws Throwable {
+    @Then("^the digit should be (\\d+)$")
+    public void it_should_returns_digit_value(Integer expected) throws Throwable {
     	Assert.assertEquals(expected, actualDigit);
     } 
 }

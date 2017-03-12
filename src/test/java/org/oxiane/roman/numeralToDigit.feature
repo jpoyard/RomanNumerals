@@ -1,38 +1,37 @@
 @numeralToDigit
 Feature: Write a function to convert in the other direction, ie numeral to digit
 
-  Scenario Outline: numeralToDigit - The Romans wrote numbers using letters - I, V, X, L, C, D, M. 
-Given the roman numeral value "<roman>"
- When I call numeralToDigit function
- Then the digit should be <digit>
+  Scenario Outline: numeralToDigit - The Romans wrote numbers using letters - I, V, X, L, C, D, M.
+    Given the roman numeral value "<roman>"
+    And the digit value <digit>
+    When I call numeralToDigit function
+    Then the digit should be <digit>
 
-  Examples: numeralToDigit - defining letters 
-    | digit | roman |
- 		| 1 		| I 		|
- 		| 5 		| V	 		|
- 		| 10 		| X 		|
- 		| 50 		| L 		|
- 		| 100   | C 		|
- 		| 500 	| D 		|
- 		| 1000 	| M 		|
- 		
- 	Examples: numeralToDigit - some expected values 
-    | digit | roman 	|
- 		| 999 	| CMXCIX  |
- 		| 900 	| CM 			|
- 		| 90 		| XC 			|
- 		| 1990	| MCMXC 	|
- 		| 2000  | MM 			|
- 		| 8 		| VIII 		|
- 		| 2008  | MMVIII	|
- 		
- 	Examples: numeralToDigit - specific values (not exceed 3 sames letters)
-    | digit | roman 	|
- 		| 4 	  | IV      |
- 		| 9 	  | IX 			|
- 		| 40 		| XL 			|
- 		| 90	  | XC 	    |
- 		| 400   | CD 			|
- 		| 900 	| CM  		|
- 		
- 		
+    Examples: numeralToDigit - defining letters
+      | roman | digit |
+      | I     |     1 |
+      | V     |     5 |
+      | X     |    10 |
+      | L     |    50 |
+      | C     |   100 |
+      | D     |   500 |
+      | M     |  1000 |
+
+    Examples: numeralToDigit - some expected values
+      | roman  | digit |
+      | CMXCIX |   999 |
+      | CM     |   900 |
+      | XC     |    90 |
+      | MCMXC  |  1990 |
+      | MM     |  2000 |
+      | VIII   |     8 |
+      | MMVIII |  2008 |
+
+    Examples: numeralToDigit - specific values (not exceed 3 sames letters)
+      | roman | digit |
+      | IV    |     4 |
+      | IX    |     9 |
+      | XL    |    40 |
+      | XC    |    90 |
+      | CD    |   400 |
+      | CM    |   900 |
